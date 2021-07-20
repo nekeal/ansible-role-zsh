@@ -1,0 +1,16 @@
+{
+  "template": "https://github.com/nekeal/cookiecutter-ansible-role-molecule.git",
+  "commit": "a4bd1e6f7df7fda5dd056513c13d9c3297020007",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "role_name": "zinit",
+      "author": "Nekeal",
+      "description": "Ansible role which configures zsh, zinit and some shell tools",
+      "add_github_actions_config": "y",
+      "license": "MIT",
+      "_template": "https://github.com/nekeal/cookiecutter-ansible-role-molecule.git"
+    }
+  },
+  "directory": null
+}
