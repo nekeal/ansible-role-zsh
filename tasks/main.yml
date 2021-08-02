@@ -1,2 +1,8 @@
 ---
 # tasks file for zinit
+
+- name: Install zsh
+  import_tasks: "install_zsh.yml"
+  tags:
+    - zsh
+    - zinit

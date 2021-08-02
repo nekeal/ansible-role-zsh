@@ -1,0 +1,52 @@
+# TODO: dorobić installowanie requirementsów
+
+- name: Get installed version
+  command: zsh --version
+  ignore_errors: yes
+  changed_when: false
+  failed_when: false
+  register: zsh_installed_version_result
+
+- name: Install if the version do not match
+  set_fact:
+    zsh_reinstall_from_source: true
+  when:
+    - zsh_installed_version_result is success
+    - zsh_version | string not in zsh_installed_version_result.stdout
+
+- block:
+    - name: Install dependencies
+      apt:
+        name: "{{ zsh_apt_dependencies }}"
+        state: present
+        update_cache: yes
+      become: yes
+
+    - name: Download zsh archive
+      get_url:
+        url: "{{ zsh_download_url }}"
+        dest: "{{ zsh_download_file }}"
+        force: no
+
+    - name: Unpack zsh archive
+      unarchive:
+        src: "{{ zsh_download_file }}"
+        dest: /tmp
+        remote_src: yes
+
+    - name: Configure installation
+      command: ./configure --with-tcsetpgrp
+      args:
+        chdir: "{{ zsh_build_directory }}"
+        creates: "{{ zsh_build_directory }}/config.status"
+
+    - name: Build zsh
+      make:
+        chdir: "{{ zsh_build_directory }}"
+
+    - name: Install zsh
+      make:
+        chdir: "{{ zsh_build_directory }}"
+        target: install
+      become: yes
+  when: zsh_installed_version_result is failed or zsh_reinstall_from_source
