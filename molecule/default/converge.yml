@@ -1,0 +1,8 @@
+---
+- name: Converge
+  remote_user: ansible
+  hosts: all
+  tasks:
+    - name: "Include role zinit"
+      import_role:
+        name: nekeal.zinit

@@ -1,0 +1,59 @@
+---
+name: CI
+on:
+  pull_request:
+  push:
+  schedule:
+    - cron: "0 3 * * 5"
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install test dependencies.
+        run: pip3 install yamllint ansible-lint ansible
+
+      - name: Run yamllint
+        run: yamllint .
+
+      - name: Run ansible-Lint
+        run: ansible-lint
+
+  molecule:
+    name: Molecule
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        distro:
+          - ubuntu18
+          - ubuntu20
+          - debian9
+          - debian10
+    env:
+      PY_COLORS: "1"
+      ANSIBLE_FORCE_COLOR: "1"
+      MOLECULE_DISTRIBUTION: ${{ matrix.distro }}
+
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      - name: Install test dependencies.
+        run: pip install -r requirements.txt
+
+      - name: Run Molecule tests.
+        run: molecule test
