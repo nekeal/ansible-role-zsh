@@ -1,7 +1,16 @@
 ---
 # vars file for zinit
-zsh_apt_dependencies:
-  - ncurses-dev
+zsh_os_variable_files:
+  files:
+    - "{{ ansible_distribution | lower }}-{{ ansible_distribution_version | lower }}.yml"
+    - "{{ ansible_distribution | lower }}-{{ ansible_distribution_major_version | lower }}.yml"
+    - "{{ ansible_os_family | lower }}-{{ ansible_distribution_major_version | lower }}.yml"
+    - "{{ ansible_distribution | lower }}.yml"
+    - "{{ ansible_os_family | lower }}.yml"
+    - "default.yml"
+  paths:
+    - vars
+
 zsh_download_url: https://sourceforge.net/projects/zsh/files/zsh/{{ zsh_version }}/zsh-{{ zsh_version }}.tar.xz
 zsh_download_file: "/tmp/zsh-{{ zsh_version }}.tar.xz"
 zsh_build_directory: "/tmp/zsh-{{ zsh_version }}"

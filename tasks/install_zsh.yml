@@ -1,5 +1,4 @@
-# TODO: dorobić installowanie requirementsów
-
+---
 - name: Get installed version
   command: zsh --version
   ignore_errors: yes
@@ -14,14 +13,24 @@
     - zsh_installed_version_result is success
     - zsh_version | string not in zsh_installed_version_result.stdout
 
-- block:
-    - name: Install dependencies
-      apt:
-        name: "{{ zsh_apt_dependencies }}"
-        state: present
-        update_cache: yes
-      become: yes
+- name: Install apt dependencies
+  apt:
+    name: "{{ zsh_packages_dependencies }}"
+    state: present
+    update_cache: yes
+  become: yes
+  when: ansible_os_family == "Debian"
 
+- name: Install yum dependencies
+  yum:
+    name: "{{ zsh_packages_dependencies }}"
+    state: present
+    update_cache: yes
+  become: yes
+  when: ansible_os_family != "Debian"
+
+- name: Install zsh
+  block:
     - name: Download zsh archive
       get_url:
         url: "{{ zsh_download_url }}"
