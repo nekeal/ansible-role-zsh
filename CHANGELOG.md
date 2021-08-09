@@ -8,3 +8,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 * Bootstrap project with molecule [!1](https://github.com/nekeal/ansible-role-zinit/pull/1)
+* Installation of zsh from source [!2](https://github.com/nekeal/ansible-role-zinit/pull/2)
