@@ -1,2 +1,6 @@
 ---
 # defaults file for zinit
+
+zsh_version: 5.8
+
+zsh_reinstall_from_source: false

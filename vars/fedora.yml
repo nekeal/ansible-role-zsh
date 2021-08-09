@@ -1,0 +1,4 @@
+zsh_packages_dependencies:
+  - ncurses-devel
+  - xz
+  - "@Development tools"
