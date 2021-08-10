@@ -1,0 +1,22 @@
+{% set config = item.1.config %}
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+[ -f ~/.zinit/bin/zinit.zsh ] && source ~/.zinit/bin/zinit.zsh
+autoload -Uz compinit
+compinit
+
+export LANG={{ config.lang | default('en_US.UTF-8') }}
+
+
+# Load custom shell files from ~/.zsh/
+for file in ~/.zsh/*.{sh,zsh}(N)
+do
+   [ -s $file ] && source $file
+done
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

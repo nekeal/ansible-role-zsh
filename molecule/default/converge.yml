@@ -6,3 +6,9 @@
     - name: "Include role zinit"
       import_role:
         name: nekeal.zinit
+  vars:
+    users:
+      - username: ansible
+        config_templates:
+          - src: zshrc-default.zsh.j2
+            dst: ~/.zshrc
