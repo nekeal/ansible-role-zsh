@@ -11,4 +11,8 @@
       - username: ansible
         config_templates:
           - src: zshrc-default.zsh.j2
-            dst: ~/.zshrc
+            dest: ~/.zshrc
+          - src: aliases-default.sh.j2
+            dest: ~/.zsh/aliases.sh
+            config:
+              l: ls -lart

@@ -1,8 +1,8 @@
 ---
 
 - name: Create missing directories for configs
-  file:
-    path: "{{ item.1.dst | dirname }}"
+  ansible.builtin.file:
+    path: "{{ item.1.dest | dirname }}"
     state: directory
     owner: "{{ item.0.username }}"
     mode: 0755
@@ -12,7 +12,7 @@
 - name: Upload template files
   ansible.builtin.template:
     src: "{{ item.1.src }}"
-    dest: "{{ item.1.dst }}"
+    dest: "{{ item.1.dest }}"
     mode: 0644
     validate: "zsh -n %s"
   become: yes
