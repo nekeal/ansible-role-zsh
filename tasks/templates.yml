@@ -17,4 +17,4 @@
     validate: "zsh -n %s"
   become: yes
   become_user: "{{ item.0.username }}"
-  loop: "{{ q('subelements', users, 'config_templates', {'skip_missing': True}) }}"
+  loop: "{{ q('subelements', users, 'zsh_config_templates', {'skip_missing': True}) }}"
