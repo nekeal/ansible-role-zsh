@@ -1,0 +1,20 @@
+---
+
+- name: Create missing directories for configs
+  ansible.builtin.file:
+    path: "{{ item.1.dest | dirname }}"
+    state: directory
+    owner: "{{ item.0.username }}"
+    mode: 0755
+  loop: "{{ q('subelements', users, 'zsh_config_templates', {'skip_missing': True}) }}"
+
+
+- name: Upload template files
+  ansible.builtin.template:
+    src: "{{ item.1.src }}"
+    dest: "{{ item.1.dest }}"
+    mode: 0644
+    validate: "zsh -n %s"
+  become: yes
+  become_user: "{{ item.0.username }}"
+  loop: "{{ q('subelements', users, 'zsh_config_templates', {'skip_missing': True}) }}"

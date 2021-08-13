@@ -10,3 +10,9 @@
   tags:
     - zsh
     - zinit
+
+- name: Configure templates
+  import_tasks: templates.yml
+  tags:
+    - zsh
+    - zsh-templates
