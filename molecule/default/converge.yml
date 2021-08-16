@@ -11,10 +11,7 @@
       - username: ansible
         groups:
           - sudo
-        zsh_config_templates:
-          - src: zshrc-default.zsh.j2
-            dest: ~/.zshrc
-          - src: aliases-default.zsh.j2
-            dest: ~/.zsh/aliases.zsh
-            config:
-              l: ls -lart
+        shell: /bin/zsh
+        aliases:
+          aliases:
+            l: ls -lart

@@ -4,6 +4,7 @@
   ignore_errors: yes
   changed_when: false
   failed_when: false
+  check_mode: no
   register: zsh_installed_version_result
 
 - name: Install if the version do not match
@@ -57,5 +58,8 @@
       make:
         chdir: "{{ zsh_build_directory }}"
         target: install
+        params:
+          bindir: "{{ zsh_install_bin_prefix }}"
       become: yes
+
   when: zsh_installed_version_result is failed or zsh_reinstall_from_source
