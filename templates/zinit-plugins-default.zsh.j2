@@ -1,0 +1,29 @@
+{% block ohmyzsh_plugins %}
+zinit snippet OMZP::git
+zinit snippet OMZP::sudo
+zinit snippet OMZP::systemd
+zinit snippet OMZP::vagrant
+zinit snippet OMZP::autojump
+{% endblock %}
+
+{% block ohmyzsh_libraries %}
+zinit snippet OMZL::completion.zsh
+zinit snippet OMZL::history.zsh
+zinit snippet OMZL::directories.zsh
+zinit snippet OMZL::git.zsh
+{% endblock %}
+
+{% block zinit_plugins %}
+zinit load popstas/zsh-command-time
+zinit load zsh-users/zsh-autosuggestions
+zinit ice blockf; zinit load zsh-users/zsh-completions
+zinit ice depth=1; zinit load romkatv/powerlevel10k
+zinit load zpm-zsh/clipboard
+zinit load zpm-zsh/undollar
+zinit load zdharma/fast-syntax-highlighting
+zinit load supercrabtree/k
+zinit load sparsick/ansible-zsh
+zinit load Tarrasch/zsh-autoenv
+zinit load djui/alias-tips
+zinit ice atload="autoload -U +X bashcompinit && bashcompinit" zinit load macunha1/zsh-terraform
+{% endblock %}

@@ -1,0 +1,28 @@
+---
+
+- name: Install git
+  ansible.builtin.apt:
+    name: git
+    state: present
+    cache_valid_time: 3600
+  become: yes
+
+- name: Install zinit for user
+  ansible.builtin.git:
+    repo: "{{ zsh_zinit_repo_url }}"
+    dest: "{{ zsh_zinit_bin_directory }}"
+    version: master
+    force: yes
+  loop: "{{ users }}"
+  loop_control:
+    label: "{{ item.username }}"
+
+- name: Create zinit plugins file
+  ansible.builtin.template:
+    src: "{{ item.zinit_plugins_template | default(zsh_zinit_plugins_template) }}"
+    dest: "{{ zsh_zinit_plugins_file }}"
+    mode: 0744
+    owner: "{{ item.username }}"
+  loop: "{{ users }}"
+  loop_control:
+    label: "{{ item.username }}"

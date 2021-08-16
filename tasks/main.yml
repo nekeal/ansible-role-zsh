@@ -16,3 +16,10 @@
   tags:
     - zsh
     - zsh-templates
+
+- name: Install zinit
+  import_tasks: zinit.yml
+  tags:
+    - zsh
+    - zsh-templates
+  when: zsh_install_zinit

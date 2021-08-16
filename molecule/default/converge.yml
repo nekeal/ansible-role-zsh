@@ -12,6 +12,8 @@
         groups:
           - sudo
         shell: /bin/zsh
+        zshrc:
+          template: zshrc-default.zsh.j2
         aliases:
           aliases:
             l: ls -lart

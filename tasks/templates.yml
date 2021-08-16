@@ -31,7 +31,7 @@
   loop: "{{ users }}"
 
 
-- name: Upload template files
+- name: Upload extra template files
   ansible.builtin.template:
     src: "{{ item.1.src }}"
     dest: "{{ item.1.dest }}"

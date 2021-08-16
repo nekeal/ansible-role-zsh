@@ -12,19 +12,17 @@ export PATH=$PATH:/home/{{ item.username }}/.local/bin
 [ -f {{ zsh_zinit_init_file }} ] && source {{ zsh_zinit_init_file }}
 
 # Load custom shell files from ~/.zsh/
-for file in {{ zsh_zinit_plugins_file }} \
-            {{ zsh_aliases_file }} {% if (item.zsh_config_templates | default([])) | length > 0 %}\{% endif %}
+for file in ~/.fzf.zsh \
+            ~/.p10k.zsh \
+            {{ zsh_zinit_plugins_file }} \
+            {{ zsh_aliases_file }} {% if item.zsh_config_templates | default([]) %}\{% endif %}
 
 {% for template in item.zsh_config_templates | default([]) %}
             {{ template.dest }} {% if not loop.last %}\{% endif %}
 
 {% endfor %}
 do
-   [ -s $file ] &&  source $file
+   [ -s $file ] && source $file
 done
 
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-autoload -Uz compinit
-compinit
+autoload -Uz compinit; compinit
