@@ -36,8 +36,8 @@ Role Variables
               dest: ~/.zshrc
               config:
                 lang: en_US.UTF-8
-            - src: aliases-default.sh.j2
-              dest: ~/.zsh/aliases.sh
+            - src: aliases-default.zsh.j2
+              dest: ~/.zsh/aliases.zsh
               config:
                 l: ls -lart
 

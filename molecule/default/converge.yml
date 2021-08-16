@@ -14,7 +14,7 @@
         zsh_config_templates:
           - src: zshrc-default.zsh.j2
             dest: ~/.zshrc
-          - src: aliases-default.sh.j2
-            dest: ~/.zsh/aliases.sh
+          - src: aliases-default.zsh.j2
+            dest: ~/.zsh/aliases.zsh
             config:
               l: ls -lart
