@@ -3,10 +3,7 @@ Ansible Role: Zsh
  [![CI](https://github.com/nekeal/ansible-role-zsh/actions/workflows/ci.yml/badge.svg)](https://github.com/nekeal/ansible-role-zsh/actions/workflows/ci.yml)
 =========
 
-**Note:**
-This repo is currently in `work in progress` status.
-
-Ansible role which configures zsh, zinit and some shell tools
+Ansible role which configures zsh, zinit and some shell tools.
 
 Requirements
 ------------

@@ -6,7 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0]
+
 ### Added
 * Bootstrap project with molecule [!1](https://github.com/nekeal/ansible-role-zsh/pull/1)
 * Installation of zsh from source [!2](https://github.com/nekeal/ansible-role-zsh/pull/2)
 * Add configuring zsh config templates per user [!3](https://github.com/nekeal/ansible-role-zsh/pull/3)
+* Add zinit installation with default set of plugins [zinit-plugins-defaults.zsh.j2](./templates/zinit-plugins-default.zsh.j2) [!4](https://github.com/nekeal/ansible-role-zsh/pull/4)
+
+### Changed
+* Some templates are enabled by default [!4](https://github.com/nekeal/ansible-role-zsh/pull/4)
