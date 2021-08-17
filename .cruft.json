@@ -4,7 +4,7 @@
   "checkout": null,
   "context": {
     "cookiecutter": {
-      "role_name": "zinit",
+      "role_name": "zsh",
       "author": "Nekeal",
       "description": "Ansible role which configures zsh, zinit and some shell tools",
       "add_github_actions_config": "y",

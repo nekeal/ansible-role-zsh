@@ -3,9 +3,9 @@
   remote_user: ansible
   hosts: all
   tasks:
-    - name: "Include role zinit"
+    - name: "Include role zsh"
       import_role:
-        name: nekeal.zinit
+        name: nekeal.zsh
   vars:
     users:
       - username: ansible

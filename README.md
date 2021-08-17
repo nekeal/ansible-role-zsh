@@ -1,10 +1,9 @@
-zinit
+Ansible Role: Zsh
+---
+ [![CI](https://github.com/nekeal/ansible-role-zsh/actions/workflows/ci.yml/badge.svg)](https://github.com/nekeal/ansible-role-zsh/actions/workflows/ci.yml)
 =========
 
-**Note:**
-This repo is currently in `work in progress` status.
-
-Ansible role which configures zsh, zinit and some shell tools
+Ansible role which configures zsh, zinit and some shell tools.
 
 Requirements
 ------------
@@ -26,7 +25,7 @@ Role Variables
 | `zsh_reinstall_from_source` | false | Defines whether to force re-installation zsh even if version matches current installation |
 | `zsh_install_bin_prefix` | /bin | Where to keep zsh binary |
 | `zsh_user_config_dir` | ~/.zsh | Where to keep and load zsh configuration files |
-| `zsh_install_zinit` | True | Whether to install [zinit](https://github.com/zdharma/zinit) plugin manager |
+| `zsh_install_zinit` | true | Whether to install [zinit](https://github.com/zdharma/zinit) plugin manager |
 | `zsh_zshrc_template` | zshrc-default.zsh.j2 | Default template used for .zshrc file |
 | `zsh_aliases_template` | aliases-default.zsh.j2 | Default template used for file containing aliases definitions |
 | `zsh_zinit_plugins_template` | zinit-plugins-default.zsh.j2 | Default template containing plugins for zinit. It contains subset of usefull plugins by default as well as some configurations from [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh/) |
@@ -67,7 +66,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: nekeal.zinit }
+         - { role: nekeal.zsh }
 
 License
 -------
