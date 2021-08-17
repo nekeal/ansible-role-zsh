@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  role_name: zinit
+  role_name: zsh
   author: nekeal
   description: Ansible role which configures zsh, zinit and some shell tools
 
