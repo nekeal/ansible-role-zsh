@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+* Add `zsh-pyenv` to default set of plugins [!5](https://github.com/nekeal/ansible-role-zsh/pull/5)
+
 ### Fixed
 
 * Fixed tags for zinit tasks [!5](https://github.com/nekeal/ansible-role-zsh/pull/5)
