@@ -4,5 +4,14 @@
 zsh_version: 5.8
 
 zsh_reinstall_from_source: false
+zsh_install_bin_prefix: /bin # in which directory to install executable
+zsh_user_config_dir: ~/.zsh
+
+zsh_install_zinit: true
+
+# templates
+zsh_zshrc_template: zshrc-default.zsh.j2
+zsh_aliases_template: aliases-default.zsh.j2
+zsh_zinit_plugins_template: zinit-plugins-default.zsh.j2
 
 users: []
