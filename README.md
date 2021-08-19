@@ -24,7 +24,7 @@ Role Variables
 | `zsh_version` | 5.8 | Version of zsh to be installed |
 | `zsh_reinstall_from_source` | false | Defines whether to force re-installation zsh even if version matches current installation |
 | `zsh_install_bin_prefix` | /bin | Where to keep zsh binary |
-| `zsh_user_config_dir` | ~/.zsh | Where to keep and load zsh configuration files |
+| `zsh_user_config_dir` | .zsh | Where to keep and load zsh configuration files (relative to user home directory) |
 | `zsh_install_zinit` | true | Whether to install [zinit](https://github.com/zdharma/zinit) plugin manager |
 | `zsh_zshrc_template` | zshrc-default.zsh.j2 | Default template used for .zshrc file |
 | `zsh_aliases_template` | aliases-default.zsh.j2 | Default template used for file containing aliases definitions |
@@ -43,7 +43,7 @@ Role Variables
             template: zshrc-default.zsh.j2
           zsh_config_templates:
             src: extra-config-template.zsh.j2
-            dest: ~/.zsh/config.zsh
+            dest: .zsh/config.zsh
 
 Default zshrc template sources some common files found in `~` and  `~/.zsh` folder as well as every extra template. It has also default
 support for [zinit](https://github.com/zdharma/zinit), [fzf](https://github.com/junegunn/fzf) and [powerlevel10k](https://github.com/romkatv/powerlevel10k)

@@ -20,8 +20,8 @@ def test_zsh_dependencies_are_installed(host):
 
 
 def test_zsh_config_dir_is_created(host):
-    assert host.file("/home/ansible/.zsh").is_directory
+    assert host.file("/home/zsh-user/.zsh").is_directory
 
 
 def test_zshrc_is_placed_in_home_directory(host):
-    assert host.file("/home/ansible/.zshrc").is_file
+    assert host.file("/home/zsh-user/.zshrc").is_file

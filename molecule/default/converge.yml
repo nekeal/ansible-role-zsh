@@ -8,9 +8,7 @@
         name: nekeal.zsh
   vars:
     users:
-      - username: ansible
-        groups:
-          - sudo
+      - username: zsh-user
         shell: /bin/zsh
         zshrc:
           template: zshrc-default.zsh.j2

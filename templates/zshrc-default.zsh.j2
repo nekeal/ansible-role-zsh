@@ -9,16 +9,16 @@ fi
 export LANG={{ config.lang | default('en_US.UTF-8') }}
 export PATH=$PATH:/home/{{ item.username }}/.local/bin
 
-[ -f {{ zsh_zinit_init_file }} ] && source {{ zsh_zinit_init_file }}
+[ -f ~/{{ zsh_zinit_init_file }} ] && source ~/{{ zsh_zinit_init_file }}
 
 # Load custom shell files from ~/.zsh/
 for file in ~/.fzf.zsh \
             ~/.p10k.zsh \
-            {{ zsh_zinit_plugins_file }} \
-            {{ zsh_aliases_file }} {% if item.zsh_config_templates | default([]) %}\{% endif %}
+            ~/{{ zsh_zinit_plugins_file }} \
+            ~/{{ zsh_aliases_file }} {% if item.zsh_config_templates | default([]) %}\{% endif %}
 
 {% for template in item.zsh_config_templates | default([]) %}
-            {{ template.dest }} {% if not loop.last %}\{% endif %}
+            ~/{{ template.dest }} {% if not loop.last %}\{% endif %}
 
 {% endfor %}
 do
