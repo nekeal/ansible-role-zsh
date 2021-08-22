@@ -2,6 +2,12 @@
 - name: Converge
   remote_user: ansible
   hosts: all
+  pre_tasks:
+    - name: Install acl
+      apt:
+        name: acl
+        state: present
+      become: yes
   tasks:
     - name: "Include role zsh"
       import_role:
