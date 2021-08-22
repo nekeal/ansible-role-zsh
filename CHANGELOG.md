@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 * Fixed tags for zinit tasks [!5](https://github.com/nekeal/ansible-role-zsh/pull/5)
-
+* Fix problem with permissions for other users than `remote_user` [!7](https://github.com/nekeal/ansible-role-zsh/pull/5)
 
 ## [1.0.0]
 
