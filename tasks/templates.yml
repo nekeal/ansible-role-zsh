@@ -34,6 +34,16 @@
   become: yes
   loop: "{{ users }}"
 
+- name: Create .zshenv file
+  ansible.builtin.template:
+    src: "{{ (item.env_vars | default({})).template | default(zshenv_template) }}"
+    dest: "/home/{{ item.username }}/{{ zsh_zshenv_file }}"
+    mode: 0755
+    owner: "{{ item.username }}"
+    group: "{{ item.groups.0 | default(item.username) }}"
+    validate: "zsh -n %s"
+  become: yes
+  loop: "{{ users }}"
 
 - name: Upload extra template files
   ansible.builtin.template:

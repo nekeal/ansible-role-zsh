@@ -25,3 +25,7 @@ def test_zsh_config_dir_is_created(host):
 
 def test_zshrc_is_placed_in_home_directory(host):
     assert host.file("/home/zsh-user/.zshrc").is_file
+
+
+def test_zshenv_is_placed_in_home_directory(host):
+    assert host.file("/home/zsh-user/.zshenv").is_file

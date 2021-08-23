@@ -29,6 +29,7 @@ Role Variables
 | `zsh_zshrc_template` | zshrc-default.zsh.j2 | Default template used for .zshrc file |
 | `zsh_aliases_template` | aliases-default.zsh.j2 | Default template used for file containing aliases definitions |
 | `zsh_zinit_plugins_template` | zinit-plugins-default.zsh.j2 | Default template containing plugins for zinit. It contains subset of usefull plugins by default as well as some configurations from [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh/) |
+| `zshenv_template` | zshenv-default.j2 | Default template for ~/.zshenv file |
 | `users` | [] | Contains list of users for which to configure zsh |
 
 * Users config example:
@@ -41,6 +42,8 @@ Role Variables
               l: ls -lart
           zshrc:
             template: zshrc-default.zsh.j2
+          env_vars:
+            PATH: "$PATH=~/.local/bin:$PATH"
           zsh_config_templates:
             src: extra-config-template.zsh.j2
             dest: .zsh/config.zsh
