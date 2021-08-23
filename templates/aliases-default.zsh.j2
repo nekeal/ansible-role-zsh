@@ -1,3 +1,5 @@
+{% block main %}
 {% for key,value in (item.1.config | default({})).items() %}
 alias {{ key }}="{{ value }}"
 {% endfor %}
+{% endblock %}
