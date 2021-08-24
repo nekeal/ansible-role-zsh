@@ -9,11 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 * Add `zsh-pyenv` to default set of plugins [!5](https://github.com/nekeal/ansible-role-zsh/pull/5)
+* Add .zshenv to default files created from env_vars [!8](https://github.com/nekeal/ansible-role-zsh/pull/8)
+* Add jinja blocks to templates [!8](https://github.com/nekeal/ansible-role-zsh/pull/8)
+* Add new default plugins to zinit [!8](https://github.com/nekeal/ansible-role-zsh/pull/8)
 
 ### Fixed
 
 * Fixed tags for zinit tasks [!5](https://github.com/nekeal/ansible-role-zsh/pull/5)
 * Fix problem with permissions for other users than `remote_user` [!7](https://github.com/nekeal/ansible-role-zsh/pull/5)
+* Loading `zsh-pyenv` plugin is no longer verbose [!8](https://github.com/nekeal/ansible-role-zsh/pull/8)
 
 ## [1.0.0]
 

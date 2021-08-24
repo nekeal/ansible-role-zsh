@@ -13,5 +13,6 @@ zsh_install_zinit: true
 zsh_zshrc_template: zshrc-default.zsh.j2
 zsh_aliases_template: aliases-default.zsh.j2
 zsh_zinit_plugins_template: zinit-plugins-default.zsh.j2
+zshenv_template: zshenv-default.j2
 
 users: []

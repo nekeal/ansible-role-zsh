@@ -24,3 +24,5 @@
         zsh_config_templates:
           - src: aliases-default.zsh.j2
             dest: .zsh/aliases2.zsh
+        env_vars:
+          ENVIRONMENT: ansible

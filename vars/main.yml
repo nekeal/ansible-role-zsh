@@ -22,3 +22,4 @@ zsh_zinit_init_file: "{{ zsh_zinit_bin_directory }}/zinit.zsh"
 zsh_zinit_plugins_file: "{{ zsh_user_config_dir }}/zinit_plugins.zsh"
 zsh_aliases_file: "{{ zsh_user_config_dir }}/aliases.zsh"
 zsh_zshrc_file: .zshrc
+zsh_zshenv_file: .zshenv
