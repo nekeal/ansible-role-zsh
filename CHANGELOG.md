@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Add .zshenv to default files created from env_vars [!8](https://github.com/nekeal/ansible-role-zsh/pull/8)
 * Add jinja blocks to templates [!8](https://github.com/nekeal/ansible-role-zsh/pull/8)
 * Add new default plugins to zinit [!8](https://github.com/nekeal/ansible-role-zsh/pull/8)
+* Add fzf to default zinit plugins template [!9](https://github.com/nekeal/ansible-role-zsh/pull/9)
 
 ### Fixed
 
