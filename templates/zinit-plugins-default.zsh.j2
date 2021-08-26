@@ -34,4 +34,5 @@ zinit ice atload="autoload -U +X bashcompinit && bashcompinit" zinit load macunh
 zinit ice wait=!0 lucid; zinit load mattberther/zsh-pyenv
 zinit ice as=command from=gh-r sbin=fzf id-as=fzf; zinit load junegunn/fzf
 zinit ice depth"1" multisrc"shell/{completion,key-bindings}.zsh" pick="/dev/null"; zinit load junegunn/fzf
+zinit ice wait=!0 lucid; zinit load lukechilds/zsh-nvm
 {% endblock %}
