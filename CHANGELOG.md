@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Add new default plugins to zinit [!8](https://github.com/nekeal/ansible-role-zsh/pull/8)
 * Add fzf to default zinit plugins template [!9](https://github.com/nekeal/ansible-role-zsh/pull/9)
 * Add nvm to default zinit plugins template [!10](https://github.com/nekeal/ansible-role-zsh/pull/10)
+* Add support for [tfenv](https://github.com/tfutils/tfenv) and [tgenv](https://github.com/cunymatthieu/tgenv/tree/master/bin) version managers [!11](https://github.com/nekeal/ansible-role-zsh/pull/11)
 
 ### Fixed
 
