@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Fixed tags for zinit tasks [!5](https://github.com/nekeal/ansible-role-zsh/pull/5)
 * Fix problem with permissions for other users than `remote_user` [!7](https://github.com/nekeal/ansible-role-zsh/pull/5)
 * Loading `zsh-pyenv` plugin is no longer verbose [!8](https://github.com/nekeal/ansible-role-zsh/pull/8)
+* Fix example in readme (thanks to [eastokes](https://github.com/eastokes)) [!13](https://github.com/nekeal/ansible-role-zsh/pull/13)
 
 ## [1.0.0]
 
