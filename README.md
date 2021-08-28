@@ -45,8 +45,8 @@ Role Variables
           env_vars:
             PATH: "$PATH=~/.local/bin:$PATH"
           zsh_config_templates:
-            src: extra-config-template.zsh.j2
-            dest: .zsh/config.zsh
+            - src: extra-config-template.zsh.j2
+              dest: .zsh/config.zsh
 
 Default zshrc template sources some common files found in `~` and  `~/.zsh` folder as well as every extra template. It has also default
 support for [zinit](https://github.com/zdharma/zinit), [fzf](https://github.com/junegunn/fzf) and [powerlevel10k](https://github.com/romkatv/powerlevel10k)
