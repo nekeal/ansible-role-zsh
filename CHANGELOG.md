@@ -24,6 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Fix example in readme (thanks to [eastokes](https://github.com/eastokes)) [!13](https://github.com/nekeal/ansible-role-zsh/pull/13)
 * Fix aliases default template [!12](https://github.com/nekeal/ansible-role-zsh/pull/12)
 * Fix OMZ docker plugin loading [!12](https://github.com/nekeal/ansible-role-zsh/pull/12)
+* Fix zshenv template when user has no env_vars configured [!14](https://github.com/nekeal/ansible-role-zsh/pull/14)
+* Fix group of zsh config templates [!14](https://github.com/nekeal/ansible-role-zsh/pull/14)
 
 ## [1.0.0]
 

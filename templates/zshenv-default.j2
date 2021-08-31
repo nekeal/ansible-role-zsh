@@ -1,3 +1,3 @@
-{% for key,value in item.env_vars.items() %}
+{% for key,value in (item.env_vars | default({})).items() %}
 export {{ key }}={{ value }}
 {% endfor %}
