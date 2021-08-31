@@ -1,5 +1,5 @@
 {% block main %}
-{% for key,value in (item.1.config | default({})).items() %}
+{% for key,value in ((item.aliases | default({})).aliases | default({})).items() %}
 alias {{ key }}="{{ value }}"
 {% endfor %}
 {% endblock %}
