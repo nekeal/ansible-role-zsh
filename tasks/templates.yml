@@ -51,7 +51,7 @@
     dest: "/home/{{ item.0.username }}/{{ item.1.dest }}"
     mode: 0755
     owner: "{{ item.0.username }}"
-    group: "{{ item.groups.0 | default(item.0.username) }}"
+    group: "{{ item.0.groups.0 | default(item.0.username) }}"
     validate: "zsh -n %s"
   become: yes
   loop: "{{ q('subelements', users, 'zsh_config_templates', {'skip_missing': True}) }}"
