@@ -2,27 +2,18 @@
 - name: Converge
   remote_user: ansible
   hosts: all
-  pre_tasks:
-    - name: Install acl
-      apt:
-        name: acl
-        state: present
-      become: yes
   tasks:
     - name: "Include role zsh"
       import_role:
         name: nekeal.zsh
   vars:
     users:
-      - username: zsh-user
+      - username: ansible
+        groups:
+          - sudo
         shell: /bin/zsh
         zshrc:
           template: zshrc-default.zsh.j2
         aliases:
           aliases:
             l: ls -lart
-        zsh_config_templates:
-          - src: aliases-default.zsh.j2
-            dest: .zsh/aliases2.zsh
-        env_vars:
-          ENVIRONMENT: ansible

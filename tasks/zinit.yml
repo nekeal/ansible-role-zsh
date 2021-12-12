@@ -10,29 +10,19 @@
 - name: Install zinit for user
   ansible.builtin.git:
     repo: "{{ zsh_zinit_repo_url }}"
-    dest: "/home/{{ item.username }}/{{ zsh_zinit_bin_directory }}"
+    dest: "{{ zsh_zinit_bin_directory }}"
     version: master
     force: yes
-  become: yes
   loop: "{{ users }}"
   loop_control:
     label: "{{ item.username }}"
 
-- name: Change permission of zinit directory for user
-  file:
-    path: "/home/{{ item.username }}/{{ zsh_zinit_bin_directory | dirname }}"
-    owner: "{{ item.username }}"
-  become: yes
-  changed_when: no
-  loop: "{{ users }}"
-
 - name: Create zinit plugins file
   ansible.builtin.template:
     src: "{{ item.zinit_plugins_template | default(zsh_zinit_plugins_template) }}"
-    dest: "/home/{{ item.username }}/{{ zsh_zinit_plugins_file }}"
+    dest: "{{ zsh_zinit_plugins_file }}"
     mode: 0744
     owner: "{{ item.username }}"
-  become: yes
   loop: "{{ users }}"
   loop_control:
     label: "{{ item.username }}"

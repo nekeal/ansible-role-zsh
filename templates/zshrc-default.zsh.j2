@@ -1,37 +1,28 @@
 {% set config = item.1.config %}
-{% block p10k_instant_prompt %}
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below
+# confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-{% endblock %}
 
 export LANG={{ config.lang | default('en_US.UTF-8') }}
 export PATH=$PATH:/home/{{ item.username }}/.local/bin
 
-{% block zinit_init %}
-[ -f ~/{{ zsh_zinit_init_file }} ] && source ~/{{ zsh_zinit_init_file }}
-{% endblock %}
+[ -f {{ zsh_zinit_init_file }} ] && source {{ zsh_zinit_init_file }}
 
-{% block config_files %}
 # Load custom shell files from ~/.zsh/
 for file in ~/.fzf.zsh \
             ~/.p10k.zsh \
-            ~/{{ zsh_zinit_plugins_file }} \
-            ~/{{ zsh_aliases_file }} {% if item.zsh_config_templates | default([]) %}\{% endif %}
+            {{ zsh_zinit_plugins_file }} \
+            {{ zsh_aliases_file }} {% if item.zsh_config_templates | default([]) %}\{% endif %}
 
 {% for template in item.zsh_config_templates | default([]) %}
-            ~/{{ template.dest }} {% if not loop.last %}\{% endif %}
+            {{ template.dest }} {% if not loop.last %}\{% endif %}
 
 {% endfor %}
 do
    [ -s $file ] && source $file
 done
-{% endblock %}
 
 autoload -Uz compinit; compinit
-{% block extra_bottom %}
-
-{% endblock %}
