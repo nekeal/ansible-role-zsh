@@ -2,56 +2,41 @@
 
 - name: Create zsh config directory
   ansible.builtin.file:
-    path: "/home/{{ item.username }}/{{ zsh_user_config_dir }}"
+    path: "{{ zsh_user_config_dir }}"
     state: directory
     owner: "{{ item.username }}"
-    group: "{{ item.groups.0 | default(item.username) }}"
     mode: 0755
-  become: yes
   loop: "{{ users }}"
 
 - name: Create zshrc file
   ansible.builtin.template:
     src: "{{ (item.zshrc | default({})).template | default(zsh_zshrc_template) }}"
-    dest: "/home/{{ item.username }}/{{ zsh_zshrc_file }}"
-    owner: "{{ item.username }}"
-    group: "{{ item.groups.0 | default(item.username) }}"
+    dest: "{{ zsh_zshrc_file }}"
     mode: 0755
     validate: "zsh -n %s"
     lstrip_blocks: yes
   become: yes
+  become_user: "{{ item.username }}"
   loop: "{{ users }}"
 
 
 - name: Create aliases config file
   ansible.builtin.template:
     src: "{{ (item.aliases | default({})).template | default(zsh_aliases_template) }}"
-    dest: "/home/{{ item.username }}/{{ zsh_aliases_file }}"
+    dest: "{{ zsh_aliases_file }}"
     mode: 0755
-    owner: "{{ item.username }}"
-    group: "{{ item.groups.0 | default(item.username) }}"
     validate: "zsh -n %s"
   become: yes
+  become_user: "{{ item.username }}"
   loop: "{{ users }}"
 
-- name: Create .zshenv file
-  ansible.builtin.template:
-    src: "{{ (item.env_vars | default({})).template | default(zshenv_template) }}"
-    dest: "/home/{{ item.username }}/{{ zsh_zshenv_file }}"
-    mode: 0755
-    owner: "{{ item.username }}"
-    group: "{{ item.groups.0 | default(item.username) }}"
-    validate: "zsh -n %s"
-  become: yes
-  loop: "{{ users }}"
 
 - name: Upload extra template files
   ansible.builtin.template:
     src: "{{ item.1.src }}"
-    dest: "/home/{{ item.0.username }}/{{ item.1.dest }}"
-    mode: 0755
-    owner: "{{ item.0.username }}"
-    group: "{{ item.0.groups.0 | default(item.0.username) }}"
+    dest: "{{ item.1.dest }}"
+    mode: 0644
     validate: "zsh -n %s"
   become: yes
+  become_user: "{{ item.0.username }}"
   loop: "{{ q('subelements', users, 'zsh_config_templates', {'skip_missing': True}) }}"

@@ -15,11 +15,10 @@ zsh_download_url: https://sourceforge.net/projects/zsh/files/zsh/{{ zsh_version 
 zsh_download_file: "/tmp/zsh-{{ zsh_version }}.tar.xz"
 zsh_build_directory: "/tmp/zsh-{{ zsh_version }}"
 
-zsh_zinit_repo_url: https://github.com/zdharma/zinit
-zsh_zinit_bin_directory: .zinit/bin
+zsh_zinit_repo_url: https://github.com/zdharma-continuum/zinit
+zsh_zinit_bin_directory: ~/.zinit/bin
 zsh_zinit_init_file: "{{ zsh_zinit_bin_directory }}/zinit.zsh"
 
 zsh_zinit_plugins_file: "{{ zsh_user_config_dir }}/zinit_plugins.zsh"
 zsh_aliases_file: "{{ zsh_user_config_dir }}/aliases.zsh"
-zsh_zshrc_file: .zshrc
-zsh_zshenv_file: .zshenv
+zsh_zshrc_file: ~/.zshrc
