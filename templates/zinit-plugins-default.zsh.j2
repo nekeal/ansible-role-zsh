@@ -17,8 +17,8 @@ zinit snippet OMZL::clipboard.zsh
 {% endblock %}
 
 {% block zinit_plugins %}
-zinit load zinit-zsh/z-a-patch-dl # allows downloading files and applying patches
-zinit load zinit-zsh/z-a-bin-gem-node # provides shims for installed binaries
+zinit load z-shell/z-a-patch-dl # allows downloading files and applying patches
+zinit load z-shell/z-a-bin-gem-node # provides shims for installed binaries
 
 zinit load popstas/zsh-command-time
 zinit load zsh-users/zsh-autosuggestions
@@ -26,7 +26,7 @@ zinit ice blockf; zinit load zsh-users/zsh-completions
 zinit ice depth=1; zinit load romkatv/powerlevel10k
 zinit load zpm-zsh/clipboard
 zinit load zpm-zsh/undollar
-zinit load zdharma/fast-syntax-highlighting
+zinit load z-shell/F-Sy-H
 zinit load supercrabtree/k
 zinit load sparsick/ansible-zsh
 zinit load Tarrasch/zsh-autoenv

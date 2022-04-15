@@ -11,7 +11,7 @@
   ansible.builtin.git:
     repo: "{{ zsh_zinit_repo_url }}"
     dest: "/home/{{ item.username }}/{{ zsh_zinit_bin_directory }}"
-    version: master
+    version: main
     force: yes
   become: yes
   loop: "{{ users }}"
