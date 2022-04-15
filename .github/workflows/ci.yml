@@ -22,11 +22,16 @@ jobs:
       - name: Install test dependencies.
         run: pip3 install yamllint ansible-lint ansible
 
+      - name: Create symlink for role
+        run: |
+          mkdir -p ~/.ansible/roles 
+          ln -s $(pwd) ~/.ansible/roles/nekeal.zsh 
+
       - name: Run yamllint
         run: yamllint .
 
       - name: Run ansible-Lint
-        run: ansible-lint
+        run: ansible-lint -v
 
   molecule:
     name: Molecule

@@ -19,7 +19,7 @@
     label: "{{ item.username }}"
 
 - name: Change permission of zinit directory for user
-  file:
+  ansible.builtin.file:
     path: "/home/{{ item.username }}/{{ zsh_zinit_bin_directory | dirname }}"
     owner: "{{ item.username }}"
   become: yes

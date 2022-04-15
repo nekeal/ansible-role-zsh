@@ -4,13 +4,13 @@
   hosts: all
   pre_tasks:
     - name: Install acl
-      apt:
+      ansible.builtin.apt:
         name: acl
         state: present
       become: yes
   tasks:
     - name: "Include role zsh"
-      import_role:
+      ansible.builtin.import_role:
         name: nekeal.zsh
   vars:
     users:

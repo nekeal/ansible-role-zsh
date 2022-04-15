@@ -1,6 +1,7 @@
 ---
 - name: Get installed version
-  command: zsh --version
+  ansible.builtin.command:
+    cmd: zsh --version
   ignore_errors: yes
   changed_when: false
   failed_when: false
@@ -8,14 +9,14 @@
   register: zsh_installed_version_result
 
 - name: Install if the version do not match
-  set_fact:
+  ansible.builtin.set_fact:
     zsh_reinstall_from_source: true
   when:
     - zsh_installed_version_result is success
     - zsh_version | string not in zsh_installed_version_result.stdout
 
 - name: Install apt dependencies
-  apt:
+  ansible.builtin.apt:
     name: "{{ zsh_packages_dependencies }}"
     state: present
     update_cache: yes
@@ -23,7 +24,7 @@
   when: ansible_os_family == "Debian"
 
 - name: Install yum dependencies
-  yum:
+  ansible.builtin.yum:
     name: "{{ zsh_packages_dependencies }}"
     state: present
     update_cache: yes
@@ -33,29 +34,30 @@
 - name: Install zsh
   block:
     - name: Download zsh archive
-      get_url:
+      ansible.builtin.get_url:
         url: "{{ zsh_download_url }}"
         dest: "{{ zsh_download_file }}"
+        mode: "0644"
         force: no
 
     - name: Unpack zsh archive
-      unarchive:
+      ansible.builtin.unarchive:
         src: "{{ zsh_download_file }}"
         dest: /tmp
         remote_src: yes
 
     - name: Configure installation
-      command: ./configure --with-tcsetpgrp
-      args:
+      ansible.builtin.command:
+        cmd: ./configure --with-tcsetpgrp
         chdir: "{{ zsh_build_directory }}"
         creates: "{{ zsh_build_directory }}/config.status"
 
     - name: Build zsh
-      make:
+      ansible.builtin.make:
         chdir: "{{ zsh_build_directory }}"
 
     - name: Install zsh
-      make:
+      ansible.builtin.make:
         chdir: "{{ zsh_build_directory }}"
         target: install
         params:

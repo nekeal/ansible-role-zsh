@@ -1,6 +1,6 @@
 ---
 - name: Inlcude zsh variables for specific OS
-  include_vars: "{{ lookup('first_found', zsh_os_variable_files) }}"
+  ansible.builtin.include_vars: "{{ lookup('first_found', zsh_os_variable_files) }}"
   tags:
     - zsh
     - zinit
