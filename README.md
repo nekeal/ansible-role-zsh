@@ -1,6 +1,6 @@
 Ansible Role: Zsh
 ---
- [![CI](https://github.com/nekeal/ansible-role-zsh/actions/workflows/ci.yml/badge.svg)](https://github.com/nekeal/ansible-role-zsh/actions/workflows/ci.yml)
+ [![CI](https://github.com/nekeal/ansible-role-zsh/actions/workflows/ci.yml/badge.svg?event=push)](https://github.com/nekeal/ansible-role-zsh/actions/workflows/ci.yml)
 =========
 
 Ansible role which configures zsh, zinit and some shell tools.
