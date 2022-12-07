@@ -32,6 +32,7 @@
   when: ansible_os_family != "Debian"
 
 - name: Install zsh
+  when: zsh_installed_version_result is failed or zsh_reinstall_from_source
   block:
     - name: Download zsh archive
       ansible.builtin.get_url:
@@ -53,15 +54,13 @@
         creates: "{{ zsh_build_directory }}/config.status"
 
     - name: Build zsh
-      ansible.builtin.make:
+      community.general.make:
         chdir: "{{ zsh_build_directory }}"
 
     - name: Install zsh
-      ansible.builtin.make:
+      community.general.make:
         chdir: "{{ zsh_build_directory }}"
         target: install
         params:
           bindir: "{{ zsh_install_bin_prefix }}"
       become: yes
-
-  when: zsh_installed_version_result is failed or zsh_reinstall_from_source
