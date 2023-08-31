@@ -8,6 +8,7 @@ zsh_install_bin_prefix: /bin # in which directory to install executable
 zsh_user_config_dir: .zsh
 
 zsh_install_zinit: true
+zsh_install_templates: true
 
 # templates
 zsh_zshrc_template: zshrc-default.zsh.j2

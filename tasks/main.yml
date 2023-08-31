@@ -16,6 +16,7 @@
   tags:
     - zsh
     - zsh-templates
+  when: zsh_install_templates
 
 - name: Install zinit
   ansible.builtin.import_tasks: zinit.yml
