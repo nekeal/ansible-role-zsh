@@ -26,6 +26,7 @@ Role Variables
 | `zsh_install_bin_prefix` | /bin | Where to keep zsh binary |
 | `zsh_user_config_dir` | .zsh | Where to keep and load zsh configuration files (relative to user home directory) |
 | `zsh_install_zinit` | true | Whether to install [zinit](https://github.com/zdharma/zinit) plugin manager |
+| `zsh_install_templates` | true | Whether to install zsh templates like .zshrc  |
 | `zsh_zshrc_template` | zshrc-default.zsh.j2 | Default template used for .zshrc file |
 | `zsh_aliases_template` | aliases-default.zsh.j2 | Default template used for file containing aliases definitions |
 | `zsh_zinit_plugins_template` | zinit-plugins-default.zsh.j2 | Default template containing plugins for zinit. It contains subset of usefull plugins by default as well as some configurations from [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh/) |
